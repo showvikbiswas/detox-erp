@@ -1,32 +1,36 @@
 package erp.employee;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EmployeeManager {
 
-    private List<Employee> employees = new ArrayList<>();
+    private Map<String, Employee> employeeMap = new HashMap<>();
 
     public void addEmployee(Employee employee) {
         if (employee == null) {
             System.out.println("Invalid employee.");
             return;
         }
-        employees.add(employee);
+        employeeMap.put(employee.id, employee); 
     }
 
-    public void calculateAnnualBonus() { 
-        for (Employee emp : employees) {
-            double bonus = emp.salary * 0.1;  
-            System.out.println("Annual bonus for " + emp.name + ": " + bonus);
+    public void calculateTotalSalaries() {
+        double totalSalary = 0;
+        for (Employee emp : employeeMap.values()) {
+            totalSalary += emp.salary;
         }
+        System.out.println("Total salaries: " + totalSalary);
     }
 
-    public void listEmployeesByDepartment(String department) { 
-        for (Employee emp : employees) {
-            if (emp.department.equals(department)) {
-                emp.displayDetails();
-            }
+    public void updateEmployeeDetails(String id, String newName, double newSalary) {
+        Employee emp = employeeMap.get(id);
+        if (emp == null) {
+            System.out.println("Employee not found.");
+            return;
         }
+        emp.name = newName;
+        emp.salary = newSalary;
+        System.out.println("Updated details for employee: " + emp.name);
     }
 }
