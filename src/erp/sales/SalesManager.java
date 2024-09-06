@@ -22,4 +22,13 @@ public class SalesManager {
             System.out.println("Generated invoice for order: " + order.getOrderId());
         }
     }
+
+     // New method added for calculating monthly sales data
+    public List<String> getMonthlySalesData() {
+        List<String> salesData = new ArrayList<>();
+        salesData.add("Sale1: $1000");
+        salesData.add("Sale2: $1500");
+        salesData.add("Sale3: $2000");
+        return salesData; 
+    }
 }

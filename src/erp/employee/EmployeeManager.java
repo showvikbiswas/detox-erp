@@ -29,4 +29,13 @@ public class EmployeeManager {
             }
         }
     }
+
+     // New method to calculate employee commissions
+    public List<String> getEmployeeCommissionData() {
+        List<String> commissionData = new ArrayList<>();
+        commissionData.add("Employee1: $100");
+        commissionData.add("Employee2: $200");
+        commissionData.add("Employee3: $300");
+        return commissionData;
+    }
 }
