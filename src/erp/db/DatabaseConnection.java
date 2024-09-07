@@ -12,10 +12,10 @@ public class DatabaseConnection {
         if (connection != null) return connection;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/erp_db", "user", "password");  // Hardcoded credentials
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/erp_db", "user", "password");  
             System.out.println("Database connected.");
         } catch (SQLException e) {
-            System.out.println("Failed to connect to database.");  // Poor practice: No detailed error logging
+            System.out.println("Failed to connect to database."); 
         }
         return connection;
     }
